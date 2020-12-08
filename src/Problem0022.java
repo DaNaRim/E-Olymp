@@ -12,22 +12,22 @@ public class Problem0022 {
         outer:
         for (int i = a; i <= b; i++) {
 
-            //перевірка на простоту
-            if (i == 1) continue; //одиниця не просте число
+            //checking for simplicity
+            if (i == 1) continue; //one is not a prime number
             for (long j = 2; j < i; j++) {
                 if (i % j == 0) {
                     continue outer;
                 }
             }
 
-            //знаходимо дзеркальне
+            //find the mirror number
             int mirror = 0;
             for (int num = i; num > 0; num /= 10) {
 
                 mirror = mirror * 10 + num % 10;
             }
 
-            //перевірка на простоту
+            //checking mirror for simplicity
             for (long j = 2; j < mirror; j++) {
                 if (mirror % j == 0) {
                     continue outer;
