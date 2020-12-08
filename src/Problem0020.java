@@ -5,7 +5,9 @@ public class Problem0020 {
 
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-/*
+
+        /* too slow
+
         int result = 0;
 
         while (n > 0) {
