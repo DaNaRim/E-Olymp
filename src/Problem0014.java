@@ -8,29 +8,26 @@ public class Problem0014 {
         int passengers = scanner.nextInt();
         int ticket = scanner.nextInt();
 
-        int result = 0;
-        int v = 0;
-        int g = 0;
+        int passengerShift = 0;
 
-        for (int t = ticket + 1; t <= passengers + ticket; t++) {
-            for (int j = 2; j <= t; j++) {
-                if (t == j && g == 0) {
-                    v = j;
-                    break;
-                }
-                if (t % j == 0 && g != 1) {
-                    result++;
-                    g++;
+        outer:
+        for (int t = ticket + 1; t < passengers + ticket; t++) {
+
+            //checking for simplicity
+            for (int i = 2; i < t; i++) {
+
+                if (t % i == 0) {
+                    passengerShift++;
+                    continue outer;
                 }
             }
-            g = 0;
-            if (t == v) {
-                break;
-            }
+            break;
         }
-        if (result >= passengers - 1) {
-            result = -1;
+
+        if (passengerShift + 1 == passengers) {
+            System.out.println(-1);
+        } else {
+            System.out.println(passengerShift);
         }
-        System.out.println(result);
     }
 }
